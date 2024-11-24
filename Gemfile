@@ -70,3 +70,5 @@ end
 
 # Use Kaminari for pagination
 gem "kaminari", github: "kaminari/kaminari", branch: "master"
+
+gem "sitepress-rails", "~> 4.0"
