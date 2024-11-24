@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "avi.nyc ❤️ Rails" %></title>
+    <title><%= content_for(:title) || "Rails Opus" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="view-transition" content="same-origin" />
+    <meta name="view-transition" content="same-origin"/>
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
 
     <%= yield :head %>
 
@@ -17,8 +18,6 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <script defer data-domain="rails.avi.nyc" src="https://a.wip.dev/js/script.js"></script>
   </head>
 
   <body>
