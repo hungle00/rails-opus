@@ -1,0 +1,8 @@
+<% page = @page %>
+<%= render_layout "application" do %>
+  <article itemscope itemtype="http://schema.org/Article" class="mb-3xl">
+    <div class="article-content container" itemprop="articleBody">
+      <%= yield %>
+    </div>
+  </article>
+<% end %>

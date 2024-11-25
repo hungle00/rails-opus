@@ -1,0 +1,15 @@
+---
+title: Articles
+description: Read the latest articles from Joy of Rails
+---
+
+<section style="min-height: 51vh">
+  <div class="main-content container py-gap">
+  	<% ArticleModel.all.each do |article| %>
+  	  <%= link_to article.title, article.request_path, class: "rounded-lg drop-shadow-md hover:drop-shadow-xl" %> 
+  	<% end %>
+  </div>
+</section>
+<section>
+
+</section>
