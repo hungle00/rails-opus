@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2024_02_15_145213) do
+ActiveRecord::Schema[8.1].define(version: 2024_11_25_102457) do
   create_table "photos", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -19,4 +19,21 @@ ActiveRecord::Schema[8.1].define(version: 2024_02_15_145213) do
     t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0
   end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title", null: false
+    t.boolean "completed", default: false
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
+
+  add_foreign_key "tasks", "projects"
 end
