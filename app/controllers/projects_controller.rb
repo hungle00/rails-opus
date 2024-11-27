@@ -65,6 +65,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.expect(project: [ :name ])
+      params.require(:project).permit(:name, tasks_attributes: [:id, :title, :completed, :_destroy])
     end
 end
