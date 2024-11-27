@@ -6,12 +6,30 @@ description: In this post, I'll focus on comparing Fiber and Thread and explain 
 published: 2024-10-15
 uuid: d99f045b-f3f7-4408-811e-9701b1a13ce8
 tags:
-  - Rails
+  - Ruby
 ---
+
 
 ## Fibers and Threads
 
+**Thread**  
+```rb
+thread = Thread.new do
+  #...
+end
+thread.join
+```
+
+**Fiber**  
+```rb
+fiber = Fiber.new do
+  #...
+end
+fiber.resume # transfer / Fiber.schedule
+```
+
 As you can see, they have quite similar syntax, so what are the differences between them?
+
 - **The level:**  
   - Threads are created 1:1 with threads on OS.
   - Fibers are implemented at the programming language level, multiple fibers can run inside a thread.

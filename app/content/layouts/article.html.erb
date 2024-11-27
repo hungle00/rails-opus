@@ -1,7 +1,6 @@
-<% page = @page %>
 <%= render_layout "application" do %>
-  <article itemscope itemtype="http://schema.org/Article" class="mb-3xl">
-    <div class="article-content container" itemprop="articleBody">
+  <article>
+    <div class="prose prose-sm sm:prose-base lg:prose-xl dark:prose-invert mx-auto" >
       <%= yield %>
     </div>
   </article>
