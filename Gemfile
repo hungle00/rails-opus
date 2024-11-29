@@ -70,3 +70,5 @@ end
 
 # Use Kaminari for pagination
 gem "kaminari", github: "kaminari/kaminari", branch: "master"
+
+gem "rondo_form", "~> 0.2.6"
