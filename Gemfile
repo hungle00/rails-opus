@@ -71,5 +71,7 @@ end
 # Use Kaminari for pagination
 gem "kaminari", github: "kaminari/kaminari", branch: "master"
 
+
 gem "sitepress-rails", "~> 4.0"
 gem "markdown-rails", "~> 2.1"
+gem "rondo_form", "~> 0.2.6"

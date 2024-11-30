@@ -1,0 +1,10 @@
+<div class="task-field my-4">
+  <%= f.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-1 my-2 w-full" %>
+  <div class="flex justify-between my-2">
+    <p class="">
+      Does it complete?
+      <%= f.check_box :completed, class: "checkbox ml-1" %>
+    <p>
+    <%= link_to_remove_association "Remove Task", f, class: "underline" %>
+  </div>
+</div>
