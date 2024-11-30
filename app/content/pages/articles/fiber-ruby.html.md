@@ -12,7 +12,8 @@ tags:
 
 ## Fibers and Threads
 
-**Thread**  
+**Thread**
+
 ```rb
 thread = Thread.new do
   #...
@@ -21,6 +22,7 @@ thread.join
 ```
 
 **Fiber**  
+
 ```rb
 fiber = Fiber.new do
   #...
@@ -43,6 +45,7 @@ With Thread, programmers are just allowed to create new Threads, make them do so
 
 **Meanwhile, Fiber gives us more control**  
  With Fiber, programmers are free to start, pause, and resume them.
+
 - `Fiber.new { }` : create new fiber, started with `resume`
 - `Fiber.yield`: pause current Fiber, moves control to where fiber was resumed
 - After suspension, Fiber can be resumed later at the same point with the same execution state.
