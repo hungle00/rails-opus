@@ -10,9 +10,24 @@
   font-style: normal;
 }
 
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}
+
 @layer components {
   main {
-    @apply w-full max-w-2xl mx-auto mt-12 md:w-2/3;
+    @apply w-full max-w-2xl mx-auto mt-12 md:w-3/4;
   }
 
   h1 {
