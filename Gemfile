@@ -75,3 +75,6 @@ gem "kaminari", github: "kaminari/kaminari", branch: "master"
 gem "sitepress-rails", "~> 4.0"
 gem "markdown-rails", "~> 2.1"
 gem "rondo_form", "~> 0.2.6"
+
+gem "solid_queue", "~> 1.0"
+gem "mission_control-jobs", "~> 0.6.0"
