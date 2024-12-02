@@ -1,7 +1,8 @@
 <div class="mx-auto md:w-100 w-full">
-  <h1 class="font-bold text-4xl">New project</h1>
+  <div class="flex justify-between items-center">
+    <h2 class="text-2xl font-semibold">New project</h2>
+    <%= link_to "All projects", projects_path, class: "btn-primary" %>
+  </div>
 
   <%= render "form", project: @project %>
-
-  <%= link_to "Back to projects", projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

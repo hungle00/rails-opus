@@ -1,18 +1,28 @@
-<div class="mx-auto md:w-100 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<div class="mx-auto md:w-100 w-fulld">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h2 class="text-2xl font-semibold"><%= @project.name %></h2>
+    <%= link_to "All projects", projects_path, class: "btn-primary" %>
+  </div>
+
+  <table class="table-auto mt-4">
+    <thead>
+    <tr>
+      <th style="width: 4rem;"></th>
+      <th>Name</th>
+      <th style="width: 4rem;"></th>
+    </tr>
+    </thead>
+    <% @project.tasks.each do |task| %>
+      <%= render partial: "projects/task", locals: { task: task, project: @project } %>
     <% end %>
+  </table>
 
-    <h2 class="text-xl"><%= @project.name %></h2>
-    <ul class="list-decimal ml-4 mb-4">
-      <% @project.tasks.each do |task| %>
-        <li><%= task.title %></li>
-      <% end %>
-    </ul>
-
-    <%= link_to "Edit this project", edit_project_path(@project), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to projects", projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="inline-block ml-2 mt-4">
+    <%= link_to "Edit this project", edit_project_path(@project), class: "mt-2 btn" %>
     <div class="inline-block ml-2">
       <%= button_to "Destroy this project", @project, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
