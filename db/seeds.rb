@@ -8,25 +8,35 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-image_urls = [
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
-]
+# image_urls = [
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg",
+#   "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+# ]
 
-image_urls.each_with_index do |url, index|
-  Photo.create!(
-    name: "Photo #{index + 1}",
-    url: url,
-    description: "Random description for photo #{index + 1}"
-  )
+# image_urls.each_with_index do |url, index|
+#   Photo.create!(
+#     name: "Photo #{index + 1}",
+#     url: url,
+#     description: "Random description for photo #{index + 1}"
+#   )
+# end
+
+
+(1..100).each do |idx|
+  name = Faker::Name.unique.name
+  description = Faker::Quote.famous_last_words
+
+  puts "Create photo #{idx}:\n\t- Name: #{name}\n\t- description: #{description}\n\t"
+
+  Photo.create name: name, description: description, likes_count: rand(1..10)
 end
