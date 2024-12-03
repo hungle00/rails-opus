@@ -35,3 +35,18 @@
     <% end %>
   </table>
 </div>
+
+
+<div class="mt-8">
+  <h3 class="text-2xl font-semibold">Export all Photos</h3>
+
+  <div data-controller="export-csv" class="my-3">
+    <button class="btn-primary" data-action="click->export-csv#export">Export</button>
+    <div class="hidden w-3/4 my-2" data-export-csv-target="progressWrapper">
+      <p class="mb-2 text-base">Processing file</p>
+      <div class="rounded bg-blue-200 h-3">
+        <div class="rounded bg-blue-700 h-3" data-export-csv-target="progress" style="width: 0%;"></div>
+      </div>
+    </div>
+  </div>
+</div>

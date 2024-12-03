@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   sitepress_pages
   resources :projects
+
+  namespace :photos do
+    resources :exports, only: [:index] do
+      get :download, on: :collection
+    end
+  end
+
   resources :photos do
     get :gallery, on: :collection
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Mission Control
   mount MissionControl::Jobs::Engine, at: "/jobs"
