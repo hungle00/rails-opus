@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   sitepress_pages
   resources :projects
+
+  namespace :photos do
+    resources :exports, only: [:index]
+  end
+
   resources :photos
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
