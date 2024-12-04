@@ -18,6 +18,18 @@
 </div>
 
 
-<div class="mt-5">
-  <%= link_to "Export all photos", photos_exports_path(format: :csv), class: "btn-primary" %>
+<div class="mt-8">
+  <h3 class="text-2xl font-semibold">Export all Photos</h3>
+
+  <div data-controller="export-csv" class="my-3">
+    <button class="btn-primary" data-action="click->export-csv#export">Export</button>
+    <div class="hidden w-3/4 my-2" data-export-csv-target="progressWrapper">
+      <p class="mb-2 text-base">Processing file</p>
+      <div class="rounded bg-blue-200" style="height: 12px; overflow: hidden;">
+        <div class="bg-blue-700 min-h-2" data-export-csv-target="progress" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <%= link_to "Download", "#", class: "hidden", data: { "export-user-target": "download" } %>
+  </div>
 </div>
