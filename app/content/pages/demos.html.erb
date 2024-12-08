@@ -1,14 +1,14 @@
 <section style="min-height: 51vh">
   <div class="container">
     <div class="my-4">
-      <h2 class="md:text-2xl lg:text-3xl">All Demos</h2>
+      <h2 class="sm:text-2xl md:text-3xl text-indigo-400 font-semibold">All Demos</h2>
     </div>
-    <ul class="mt-5">
-	    <li class="my-2 drop-shadow-md text-xl">
-        <%= link_to "View Transitions With Turbo 8", photos_path, class: "no-underline hover:underline text-indigo-600" %> 
+    <ul class="flex flex-col divide-y mt-5 text-lg">
+	    <li class="flex items-center space-x-2 py-3">
+        <%= link_to "View Transitions With Turbo 8", photos_path, class: "font-semibold hover:underline" %> 
       </li>
-      <li class="my-2 drop-shadow-md text-xl">
-        <%= link_to "Dynamic nested form with rondo_form gem", new_project_path, class: "no-underline hover:underline text-indigo-600" %> 
+      <li class="flex items-center space-x-2 py-3">
+        <%= link_to "Dynamic nested form with rondo_form gem", new_project_path, class: "font-semibold hover:underline" %> 
       </li>
     </ul>
   </div>

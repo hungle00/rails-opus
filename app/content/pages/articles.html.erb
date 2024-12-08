@@ -1,12 +1,12 @@
 <section style="min-height: 51vh">
   <div class="container">
     <div class="my-4">
-      <h2 class="md:text-2xl lg:text-3xl">All articles</h2>
+      <h2 class="sm:text-2xl md:text-3xl text-indigo-400 font-semibold">All articles</h2>
     </div>
-    <ul class="mt-5">
+    <ul class="mt-5 text-lg">
   	  <% ArticleModel.all.each do |article| %>
-  	    <li class="my-2 drop-shadow-md text-xl">
-          <%= link_to article.title, article.request_path, class: "no-underline hover:underline text-indigo-600" %>    
+  	    <li class="my-2">
+          <%= link_to article.title, article.request_path, class: "font-semibold hover:underline" %>    
         </li>
   	   <% end %>
     </ul>
