@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :update]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.visible
   end
 
   def show
