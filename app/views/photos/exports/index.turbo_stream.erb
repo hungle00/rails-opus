@@ -1,0 +1,12 @@
+<%= turbo_stream.replace "export" do %>
+  <%= turbo_stream_from @jid %>
+  <div data-controller="export-csv" class="my-2">
+    <button class="btn-primary" data-action="click->export-csv#export">Export</button>
+    <div class="w-3/4 my-2">
+      <p class="mb-2 text-base">Processing file</p>
+      <div class="rounded bg-blue-200 h-3">
+        <%= render partial: "blob_progress", locals: { jid: @jid, progress: 0 } %>
+      </div>
+    </div>
+  </div>
+<% end %>

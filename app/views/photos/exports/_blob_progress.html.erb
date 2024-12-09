@@ -1,0 +1,5 @@
+<% if progress == :done %>
+  <%= link_to "Download CSV", download_photos_exports_path(id: jid, format: :csv), class: "mt-3" %>
+<% else %>
+  <div id="<%= jid %>" class="rounded bg-blue-700 h-3" style="width: <%= progress %>%" ></div>
+<% end %>

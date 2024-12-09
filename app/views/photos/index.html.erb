@@ -18,6 +18,13 @@
 </div>
 
 
-<div class="mt-5">
-  <%= link_to "Export all photos", photos_exports_path(format: :csv), class: "btn-primary" %>
+<div class="mt-8">
+  <h3 class="text-2xl font-semibold">Export all Photos</h3>
+  <%= turbo_frame_tag "export" do %>
+    <%= link_to photos_exports_path, data: {turbo_stream: true}  do %>
+      <div data-controller="export-csv" class="my-3">
+        <button class="btn-primary" data-action="click->export-csv#export">Export</button>
+      </div>
+    <% end %>
+  <% end %>
 </div>

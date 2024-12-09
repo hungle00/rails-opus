@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :projects
 
   namespace :photos do
-    resources :exports, only: [:index]
+    resources :exports, only: [:index] do
+      get "download", on: :collection
+    end
   end
 
   resources :photos
