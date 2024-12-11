@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   sitepress_pages
   resources :projects
   resources :photos do
-    get :gallery, on: :collection    
+    get :gallery, on: :collection
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
