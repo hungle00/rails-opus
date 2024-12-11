@@ -8,14 +8,14 @@ export default class extends Controller {
     fetch('/photos/exports')
       .then(() => {
         this.progressWrapperTarget.classList.remove("hidden");
-        this.subscribe_channel(this.progressTarget)
+        this.subscribe_channel(this.progressTarget, this.progressWrapperTarget)
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }
 
-  subscribe_channel(progressTarget) {
+  subscribe_channel(progressTarget, progressWrapperTarget) {
     this.channel = createConsumer().subscriptions.create("ExportCsvChannel", {
       connected() {
         console.log("hello")
@@ -26,11 +26,11 @@ export default class extends Controller {
       },
     
       received(data) {
-        console.log(data["jid"])
         if (data["jid"] == null) {
           progressTarget.style.width = `${data["progress"]}%`;
         } else {
           window.location.href = `/photos/exports/download.csv?id=${data["jid"]}`
+          progressWrapperTarget.classList.add("hidden");
         }
       }
     });
