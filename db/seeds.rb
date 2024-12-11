@@ -27,6 +27,17 @@ image_urls.each_with_index do |url, index|
   Photo.create!(
     name: "Photo #{index + 1}",
     url: url,
-    description: "Random description for photo #{index + 1}"
+    description: "Random description for photo #{index + 1}",
+    visibility: true
   )
+end
+
+(1..100).each do |idx|
+  name = Faker::Name.unique.name
+  description = Faker::Quote.famous_last_words
+  url = "http://example.com/foobar.html"
+
+  puts "Create photo #{idx}:\n\t- Name: #{name}\n\t- description: #{description}\n\t"
+
+  Photo.create name: name, url: url, description: description, likes_count: rand(1..10)
 end

@@ -1,18 +1,37 @@
-<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-  <% @photos.each_slice(3) do |photo_group| %>
-    <div class="grid gap-4">
-      <% photo_group.each do |photo| %>
-        <div>
-          <%= link_to photo_path(photo) do %>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="<%= photo.url %>"
-              alt="<%= photo.name %>"
-              style="view-transition-name: photo_<%= photo.id %>"
-            >
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="w-full">
+  <% content_for :title, "Photos" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">All Photos</h1>
+    <%= link_to "Gallery", gallery_photos_path, class: "btn-primary" %>
+  </div>
+  <div class="mt-2">
+    <%= paginate @photos %>
+  </div>
+  <table class="table-auto mt-5">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Likes count</th>
+    </tr>
+    </thead>
+    <% @photos.each do |photo| %>
+      <tr id="<%= dom_id photo %>">
+        <td>
+          <%= photo.name %>
+        </td>
+        <td class="">
+          <%= photo.description %>
+        </td>
+        <td class="is-right">
+          <%= photo.description %>
+        </td>
+        <td>
+          <%= photo.likes_count %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>

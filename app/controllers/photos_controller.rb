@@ -2,7 +2,11 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :update]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.order(created_at: :desc).page(params[:page])
+  end
+
+  def gallery
+    @photos = Photo.visible
   end
 
   def show
