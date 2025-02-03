@@ -29,5 +29,14 @@ test:
   database: storage/test.sqlite3
 
 production:
-  <<: *default
-  database: storage/production.sqlite3
+  primary:
+    <<: *default
+    database: storage/production.sqlite3
+  queue:
+    <<: *default
+    database: storage/production_queue.sqlite3
+    migrations_paths: db/migrate_queue
+  cable:
+    <<: *default
+    database: storage/production_cable.sqlite3
+    migrations_paths: db/migrate_cable
