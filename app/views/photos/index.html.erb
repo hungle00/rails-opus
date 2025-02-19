@@ -2,12 +2,20 @@
   <% content_for :title, "Photos" %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">All Photos</h1>
-    <%= link_to "Gallery", gallery_photos_path, class: "btn-primary" %>
+    <h1 class="font-bold text-3xl">All Photos</h1>
   </div>
-  <div class="mt-2">
-    <%= paginate @photos %>
+  <div data-controller="export-csv" class="px-2 my-4">
+    <div class="flex items-center gap-3">
+    <button class="btn-primary" data-action="click->export-csv#export">Export CSV</button>
+      <div class="hidden grow" data-export-csv-target="progressWrapper">
+        <p class="mb-2 text-base">Processing file ...</p>
+        <div class="rounded bg-indigo-200 h-3">
+          <div class="rounded bg-indigo-700 h-3" data-export-csv-target="progress" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
   </div>
+
   <table class="table-auto mt-5">
     <thead>
     <tr>
@@ -34,4 +42,7 @@
       </tr>
     <% end %>
   </table>
+  <div class="mt-2">
+    <%= paginate @photos %>
+  </div>
 </div>
