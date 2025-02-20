@@ -78,7 +78,7 @@ gem "faker"
 
 gem "solid_queue", "~> 1.0"
 gem "solid_cable", "~> 3.0"
-gem "mission_control-jobs", "~> 0.6.0"
+gem "mission_control-jobs", "~> 1.0.2"
 
 gem "dockerfile-rails", ">= 1.7", group: :development
 
