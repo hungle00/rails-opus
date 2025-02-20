@@ -50,6 +50,7 @@ environment rails_env
 plugin :tmp_restart
 
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
+plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"]
 
 if rails_env == "development"
   # Specifies a very generous `worker_timeout` so that the worker

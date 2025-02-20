@@ -80,8 +80,8 @@ gem "solid_queue", "~> 1.0"
 gem "solid_cable", "~> 3.0"
 gem "mission_control-jobs", "~> 0.6.0"
 
-gem "dockerfile-rails", ">= 1.7", :group => :development
+gem "dockerfile-rails", ">= 1.7", group: :development
 
 gem "litestream", "~> 0.12.0"
 
-gem "aws-sdk-s3", "~> 1.180", :require => false
+gem "aws-sdk-s3", "~> 1.180", require: false
